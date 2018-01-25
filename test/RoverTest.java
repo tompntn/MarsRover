@@ -1,4 +1,3 @@
-import static com.sun.org.apache.xerces.internal.util.PropertyState.is;
 import static junit.framework.TestCase.assertTrue;
 
 import org.junit.Test;
@@ -13,6 +12,15 @@ public class RoverTest {
 
    rover.command('F');
    assertTrue(rover.getPosition().equals(new Position(0, 1, 'N')));
+
+ }
+
+ @Test
+  public void BasicMoveBackwardTest() {
+
+   // Moved forward by 1, now if we move backwards we should be back at the origin
+   rover.command('B');
+   assertTrue(rover.getPosition().equals(new Position(0, 0, 'N')));
 
  }
 
