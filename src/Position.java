@@ -40,4 +40,13 @@ public class Position {
         this.getDirection() == posObj.getDirection();
 
   }
+
+  @Override
+  public String toString() {
+    return "Position{" +
+        "x=" + x +
+        ", y=" + y +
+        ", direction=" + direction +
+        '}';
+  }
 }
