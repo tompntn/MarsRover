@@ -1,4 +1,6 @@
 import static junit.framework.TestCase.assertTrue;
+import static org.hamcrest.CoreMatchers.containsString;
+import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
 
@@ -21,6 +23,19 @@ public class RoverTest {
    rover.command('F');
    rover.command('B');
    assertTrue(rover.getPosition().equals(new Position(0, 0, 'N')));
+
+ }
+
+ @Test
+  public void InvalidPosition() {
+
+   try {
+     rover.command('B');
+   } catch (RuntimeException e) {
+     assertThat(e.getMessage(),
+         containsString("Invalid position:" + rover.getPosition()));
+   }
+
 
  }
 
