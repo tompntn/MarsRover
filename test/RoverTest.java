@@ -18,7 +18,7 @@ public class RoverTest {
  @Test
   public void BasicMoveBackwardTest() {
 
-   // Moved forward by 1, now if we move backwards we should be back at the origin
+   rover.command('F');
    rover.command('B');
    assertTrue(rover.getPosition().equals(new Position(0, 0, 'N')));
 

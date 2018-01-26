@@ -1,5 +1,3 @@
-import com.sun.javaws.exceptions.InvalidArgumentException;
-
 public class MarsRover {
 
   private Position position;
@@ -20,6 +18,11 @@ public class MarsRover {
       case 'F':
         position = new Position(position.getX(),
             position.getY() + 1, position.getDirection());
+        break;
+
+      case 'B':
+        position = new Position(position.getX(),
+            position.getY() - 1, position.getDirection());
         break;
 
       default:
