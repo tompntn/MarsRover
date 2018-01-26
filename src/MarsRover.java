@@ -8,15 +8,15 @@ public class MarsRover {
 
   private Position position;
 
-  public MarsRover(Position position) {
+  public MarsRover(final Position position) {
     this.position = position;
   }
 
-  public Position getPosition() {
+  Position getPosition() {
     return position;
   }
 
-  public void commandString(String commands) {
+  void commandString(String commands) {
 
     // Pass each character to the command handler
     commands.chars().forEach(
@@ -25,7 +25,7 @@ public class MarsRover {
 
   }
 
-  public void command(char cmd) {
+  void command(final char cmd) {
 
     // Initial default values for the new position
     int newX = position.getX();
@@ -75,7 +75,7 @@ public class MarsRover {
 
   }
 
-  private static int wrapValue(int n, final int max, final int min) {
+  private static int wrapValue(final int n, final int max, final int min) {
 
     int wrappedValue = n % max;
     if (wrappedValue < min) {
@@ -87,7 +87,7 @@ public class MarsRover {
   }
 
   // Determines if a position is a valid position in the rover's world
-  private boolean validRoverPosition(Position position) {
+  private boolean validRoverPosition(final Position position) {
 
     return position.getX() <= MAX_X &&
         position.getX() >= MIN_X &&
