@@ -33,7 +33,7 @@ public class RoverTest {
      rover.command('B');
    } catch (RuntimeException e) {
      assertThat(e.getMessage(),
-         containsString("Invalid position:" + rover.getPosition()));
+         containsString("Invalid position"));
    }
 
 
