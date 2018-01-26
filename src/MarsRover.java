@@ -16,6 +16,15 @@ public class MarsRover {
     return position;
   }
 
+  public void commandString(String commands) {
+
+    // Pass each character to the command handler
+    commands.chars().forEach(
+        c -> command((char) c)
+    );
+
+  }
+
   public void command(char cmd) {
 
     // Initial default values for the new position
@@ -23,15 +32,24 @@ public class MarsRover {
     int newY = position.getY();
     Direction newDirection = position.getDirection();
 
+    // Determine the effect in each direction
+    int upMovement = (newDirection == Direction.N) ? 1 : 0;
+    int downMovement = (newDirection == Direction.S)? 1 : 0;
+    int leftMovement = (newDirection == Direction.W)? 1 : 0;
+    int rightMovement = (newDirection == Direction.E)? 1 : 0;
+
     // Calculate the new position based on the command
     switch (cmd) {
 
       case 'F':
-        newY = newY + 1;
+
+        newY = newY + upMovement - downMovement;
+        newX = newX + rightMovement - leftMovement;
         break;
 
       case 'B':
-        newY = newY - 1;
+        newY = newY - upMovement + downMovement;
+        newX = newX - rightMovement + leftMovement;
         break;
 
       case 'R':
@@ -56,6 +74,8 @@ public class MarsRover {
     this.position = newPosition;
 
   }
+
+  // Determine the
 
   // Determines if a position is a valid position in the rover's world
   private boolean validRoverPosition(Position position) {
