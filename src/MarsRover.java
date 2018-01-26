@@ -43,13 +43,13 @@ public class MarsRover {
 
       case 'F':
 
-        newY = newY + upMovement - downMovement;
-        newX = newX + rightMovement - leftMovement;
+        newY = wrapValue(newY + upMovement - downMovement, MAX_Y, MIN_Y);
+        newX = wrapValue(newX + rightMovement - leftMovement, MAX_X, MIN_X);
         break;
 
       case 'B':
-        newY = newY - upMovement + downMovement;
-        newX = newX - rightMovement + leftMovement;
+        newY = wrapValue(newY - upMovement + downMovement, MAX_Y, MIN_Y);
+        newX = wrapValue(newX - rightMovement + leftMovement, MAX_X, MIN_X);
         break;
 
       case 'R':
@@ -75,7 +75,16 @@ public class MarsRover {
 
   }
 
-  // Determine the
+  private static int wrapValue(int n, final int max, final int min) {
+
+    int wrappedValue = n % max;
+    if (wrappedValue < min) {
+      wrappedValue = wrappedValue + max;
+    }
+
+    return wrappedValue;
+
+  }
 
   // Determines if a position is a valid position in the rover's world
   private boolean validRoverPosition(Position position) {
