@@ -1,6 +1,3 @@
-import javafx.geometry.Pos;
-import org.omg.PortableServer.POA;
-
 public class MarsRover {
 
   // Bounds on the mars rover's position

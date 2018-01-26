@@ -1,4 +1,5 @@
 import static junit.framework.TestCase.assertTrue;
+import static junit.framework.TestCase.fail;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.junit.Assert.assertThat;
 
@@ -27,15 +28,27 @@ public class RoverTest {
  }
 
  @Test
-  public void InvalidPosition() {
+  public void InvalidPositionTest() {
 
+   // Going backwards off the map
    try {
      rover.command('B');
+     fail("Expected a RuntimeException to be thrown");
    } catch (RuntimeException e) {
      assertThat(e.getMessage(),
          containsString("Invalid position"));
    }
 
+   // Going forward off the map
+   try {
+     for (int i = 0; i < 101; ++i) {
+       rover.command('F');
+     }
+     fail("Expected a RuntimeException to be thrown");
+   } catch (RuntimeException e) {
+     assertThat(e.getMessage(),
+         containsString("Invalid position"));
+   }
 
  }
 
