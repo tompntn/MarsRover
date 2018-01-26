@@ -2,9 +2,9 @@ public class Position {
 
   private final int x;
   private final int y;
-  private final char direction;
+  private final Direction direction;
 
-  public Position(int x, int y, char direction) {
+  public Position(int x, int y, Direction direction) {
     this.x = x;
     this.y = y;
     this.direction = direction;
@@ -18,13 +18,13 @@ public class Position {
     return y;
   }
 
-  public char getDirection() {
+  public Direction getDirection() {
     return direction;
   }
 
   @Override
   public int hashCode() {
-    return this.getX() * this.getY() * this.getDirection();
+    return this.getX() * this.getY() * this.getDirection().hashCode();
   }
 
   @Override
@@ -49,4 +49,5 @@ public class Position {
         ", direction=" + direction +
         '}';
   }
+
 }
