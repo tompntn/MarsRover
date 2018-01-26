@@ -67,4 +67,20 @@ public class RoverTest {
 
  }
 
+ @Test
+  public void BasicTurnRightTest() {
+
+   // Rover starts facing N
+   rover.command('R');
+   assertTrue(rover.getPosition().equals(new Position(0, 0, 'E')));
+   rover.command('R');
+   assertTrue(rover.getPosition().equals(new Position(0, 0, 'S')));
+   rover.command('R');
+   assertTrue(rover.getPosition().equals(new Position(0, 0, 'W')));
+   rover.command('R');
+   assertTrue(rover.getPosition().equals(new Position(0, 0, 'N')));
+
+
+ }
+
 }
