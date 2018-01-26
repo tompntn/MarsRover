@@ -83,4 +83,14 @@ public class RoverTest {
 
  }
 
+ @Test
+  public void CommandSequenceTest() {
+
+   // Make the rover accept a string of commands, not just one
+   rover.commandString("FFFRFF");
+   assertTrue(rover.getPosition().equals(new Position(3, 2, Direction.E)));
+
+
+ }
+
 }
