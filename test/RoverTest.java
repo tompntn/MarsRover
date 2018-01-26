@@ -8,13 +8,13 @@ import org.junit.Test;
 public class RoverTest {
 
  // Create a new mars rover instance to test
- private MarsRover rover = new MarsRover(new Position(0, 0, 'N'));
+ private MarsRover rover = new MarsRover(new Position(0, 0, Direction.N));
 
  @Test
  public void BasicMoveForwardTest() {
 
    rover.command('F');
-   assertTrue(rover.getPosition().equals(new Position(0, 1, 'N')));
+   assertTrue(rover.getPosition().equals(new Position(0, 1, Direction.N)));
 
  }
 
@@ -23,7 +23,7 @@ public class RoverTest {
 
    rover.command('F');
    rover.command('B');
-   assertTrue(rover.getPosition().equals(new Position(0, 0, 'N')));
+   assertTrue(rover.getPosition().equals(new Position(0, 0, Direction.N)));
 
  }
 
@@ -57,13 +57,13 @@ public class RoverTest {
 
    // Rover starts facing N
    rover.command('L');
-   assertTrue(rover.getPosition().equals(new Position(0, 0, 'W')));
+   assertTrue(rover.getPosition().equals(new Position(0, 0, Direction.W)));
    rover.command('L');
-   assertTrue(rover.getPosition().equals(new Position(0, 0, 'S')));
+   assertTrue(rover.getPosition().equals(new Position(0, 0, Direction.S)));
    rover.command('L');
-   assertTrue(rover.getPosition().equals(new Position(0, 0, 'S')));
+   assertTrue(rover.getPosition().equals(new Position(0, 0, Direction.E)));
    rover.command('L');
-   assertTrue(rover.getPosition().equals(new Position(0, 0, 'N')));
+   assertTrue(rover.getPosition().equals(new Position(0, 0, Direction.N)));
 
  }
 
@@ -72,13 +72,13 @@ public class RoverTest {
 
    // Rover starts facing N
    rover.command('R');
-   assertTrue(rover.getPosition().equals(new Position(0, 0, 'E')));
+   assertTrue(rover.getPosition().equals(new Position(0, 0, Direction.E)));
    rover.command('R');
-   assertTrue(rover.getPosition().equals(new Position(0, 0, 'S')));
+   assertTrue(rover.getPosition().equals(new Position(0, 0, Direction.S)));
    rover.command('R');
-   assertTrue(rover.getPosition().equals(new Position(0, 0, 'W')));
+   assertTrue(rover.getPosition().equals(new Position(0, 0, Direction.W)));
    rover.command('R');
-   assertTrue(rover.getPosition().equals(new Position(0, 0, 'N')));
+   assertTrue(rover.getPosition().equals(new Position(0, 0, Direction.N)));
 
 
  }

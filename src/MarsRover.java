@@ -21,7 +21,7 @@ public class MarsRover {
     // Initial default values for the new position
     int newX = position.getX();
     int newY = position.getY();
-    char newDirection = position.getDirection();
+    Direction newDirection = position.getDirection();
 
     // Calculate the new position based on the command
     switch (cmd) {
@@ -32,6 +32,14 @@ public class MarsRover {
 
       case 'B':
         newY = newY - 1;
+        break;
+
+      case 'R':
+        newDirection = Direction.fromBearing(newDirection.getBearing() + 90);
+        break;
+
+      case 'L':
+        newDirection = Direction.fromBearing(newDirection.getBearing() - 90);
         break;
 
       default:
